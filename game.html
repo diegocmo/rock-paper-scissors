@@ -6,29 +6,40 @@
         <script>
 
          let pcChoice = [
-             'Rock',
-             'Paper',
-             'Scissors'
+             'rock',
+             'paper',
+             'scissors'
           ];
+
+         let computerSelection = computerPlay();
+         const playerSelection = 'rock'
 
          function computerPlay() {
              return pcChoice[Math.floor(Math.random() * pcChoice.length)]; 
          }
 
          function playRound(playerSelection, computerSelection) {
-             if (playerSelection == 'rock', computerSelection == 'Paper') {
-                 return 'You lose!';
-             } else if (playerSelection == 'rock', computerSelection == 'Rock') {
-                 return 'Tie!';
-             } else {
-                 return 'You win!';
-             }
+             computerSelection = computerPlay()
+             let player = playerSelection.toLowerCase()
 
+             if ((player == 'rock' && computerSelection == 'paper') ||
+             (player == 'paper' && computerSelection == 'scissors') ||
+             (player == 'scissors' && computerSelection == 'rock')) {
+                 return 'You lose, ' + computerSelection + ' beats ' + player + '.';
+
+             } else if ((player == 'rock' && computerSelection == 'scissors') ||
+             (player == 'paper' && computerSelection == 'rock' ) ||
+             (player == 'scissors' && computerSelection == 'paper')) {
+                 return 'You win, ' + player + ' beats ' + computerSelection + '.';
+
+             } else {
+                 return 'Tie!';
+             }
          }
 
-         const computerSelection = computerPlay()
-         const playerSelection = 'rock'
-
+         function game() {
+             
+         }
 
 
         </script>
