@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Game</title></head>
+    <body>
+        <h1>Rock Paper Scissors</h1>
+        <script>
+
+         let pcChoice = [
+             'rock',
+             'paper',
+             'scissors'
+          ];
+
+         let computerSelection = computerPlay();
+         const playerSelection = 'rock'
+
+         function computerPlay() {
+             return pcChoice[Math.floor(Math.random() * pcChoice.length)]; 
+         }
+
+         function playRound(playerSelection, computerSelection) {
+             computerSelection = computerPlay()
+             let player = playerSelection.toLowerCase()
+
+             if ((player == 'rock' && computerSelection == 'paper') ||
+             (player == 'paper' && computerSelection == 'scissors') ||
+             (player == 'scissors' && computerSelection == 'rock')) {
+                 return 'You lose, ' + computerSelection + ' beats ' + player + '.';
+
+             } else if ((player == 'rock' && computerSelection == 'scissors') ||
+             (player == 'paper' && computerSelection == 'rock' ) ||
+             (player == 'scissors' && computerSelection == 'paper')) {
+                 return 'You win, ' + player + ' beats ' + computerSelection + '.';
+
+             } else {
+                 return 'Tie!';
+             }
+         }
+
+         function game() {
+             let rounds = 5
+             let playerScore = 0
+             let computerScore = 0
+
+             while (rounds > 0){
+                 let playerSelection = prompt('Please enter your choice.').toLowerCase()
+                 while (playerSelection != 'rock' && playerSelection != 'paper' && playerSelection != 'scissors'){
+                 playerSelection = prompt('Make sure to choose from rock, paper or scissors!')
+                 }
+
+             computerSelection = computerPlay();
+             round = playRound(playerSelection, computerSelection)
+             if (round.indexOf('Tie!') !== -1) {
+                 //nothings happens
+                 alert('tie, the score is ' + playerScore + ' to ' + computerScore)
+
+             } else if (round.indexOf('win') !== -1) {
+                 playerScore ++;
+                 alert('You won this round! The score is ' + playerScore + ' to ' + computerScore )
+
+             } else {
+                 computerScore ++;
+                 alert('You lost this round! The score is ' + playerScore + ' to ' + computerScore)
+             }
+             rounds --;
+             }
+
+             if (playerScore > computerScore) {
+                 return 'You win! ' + playerScore + ' to ' + computerScore;
+             } else if (playerScore < computerScore) {
+                 return 'You lose! ' + computerScore + ' to ' + playerScore;
+             } else {
+                 "You tied!";
+             }  
+         }
+        </script>
+    </body>
+</html>
