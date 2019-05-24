@@ -52,27 +52,30 @@
              round = playRound(playerSelection, computerSelection)
              if (round.indexOf('Tie!') !== -1) {
                  //nothings happens
-                 alert('tie, the score is ' + playerScore + ' to ' + computerScore)
+                 alert('Tie, the score is ' + playerScore + ' to ' + computerScore + '.')
 
              } else if (round.indexOf('win') !== -1) {
                  playerScore ++;
-                 alert('You won this round! The score is ' + playerScore + ' to ' + computerScore )
+                 alert('You won this round! The score is ' + playerScore + ' to ' + computerScore + '.' )
 
              } else {
                  computerScore ++;
-                 alert('You lost this round! The score is ' + playerScore + ' to ' + computerScore)
+                 alert('You lost this round! The score is ' + playerScore + ' to ' + computerScore+ '.')
              }
              rounds --;
              }
 
              if (playerScore > computerScore) {
-                 return 'You win! ' + playerScore + ' to ' + computerScore;
+                 alert('You win! ' + playerScore + ' to ' + computerScore + '.');
              } else if (playerScore < computerScore) {
-                 return 'You lose! ' + computerScore + ' to ' + playerScore;
+                 alert('You lose! ' + computerScore + ' to ' + playerScore + '.');
              } else {
-                 "You tied!";
+                 alert("You tied!");
              }  
          }
+         
+         game()
+
         </script>
     </body>
 </html>
